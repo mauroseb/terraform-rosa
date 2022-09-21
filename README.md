@@ -22,6 +22,12 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
  * Public key
  * Bastion instance
 
+## Diagram
+
+![Quick Drawing](./images/quick-drawing.png)
+
+
+
 ## Prerequisites
 
  * The terraform AWS provider will need the user to be [authenticated](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
