@@ -35,15 +35,16 @@ $ git clone https://github.com/mauroseb/terraform-rosa.git
 ```
 2. Create a terraform.tfvars setting values for the input variables. At least __cluster_name__ and __pubkey__.
 ```
-$ cat terraform.tfvars
+$ cd terraform-rosa/roots/rosa_privatelink_sts_3azs
+$ cat > terraform.tfvars <__EOF__
 region = "eu-central-1"   
 cluster_name = "my-test"
 pubkey = "ssh-rsa AAAAB3Nza..."
+__EOF__
 ```
 
 3. Deploy AWS resources
 ```
-$ cd terraform-rosa/roots/rosa_privatelink_sts_3azs
 $ terraform init
 $ terraform plan -out "rosa.plan"
 $ terraform apply "rosa.plan"
