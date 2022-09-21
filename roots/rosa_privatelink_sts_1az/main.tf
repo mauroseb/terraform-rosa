@@ -112,6 +112,7 @@ module "bastion" {
    source            = "../../modules/bastion"
    depends_on        = [aws_vpc.rosa-vpc]
    aws_region        = var.aws_region
+   ami               = var.generic_ami[var.aws_region]
    env_name          = var.env_name
    cluster_name      = var.cluster_name
    cluster_owner_tag = var.cluster_owner_tag
