@@ -43,6 +43,7 @@ pubkey = "ssh-rsa AAAAB3Nza..."
 
 3. Deploy AWS resources
 ```
+$ cd terraform-rosa/roots/rosa_privatelink_sts_3azs
 $ terraform init
 $ terraform plan -out "rosa.plan"
 $ terraform apply "rosa.plan"
