@@ -1,7 +1,7 @@
 # ROSA w/ private link and STS
 
 The code in this repo will create the necesary AWS resources required to deploy Red Hat OpenShift Service on AWS (ROSA) cluster using private link and Secure Token Service.
-It will create the cluster in a single AZ.
+It will create the cluster in a single AZ or in 3 AZs depending on the root module to use.
 
 ## Resources
 
@@ -31,17 +31,17 @@ It will create the cluster in a single AZ.
 
 1. Clone this repo
 ```
-$ git clone https://github.com/mauroseb/terraform-rosa-sts-privatelink
+$ git clone https://github.com/mauroseb/terraform-rosa.git
 ```
 2. Create a terraform.tfvars setting values for the input variables. At least __cluster_name__ and __pubkey__.
 ```
 $ cat terraform.tfvars
-region      
+region = "eu-central-1"   
 cluster_name = "my-test"
 pubkey = "ssh-rsa AAAAB3Nza..."
 ```
 
-3. Deploy
+3. Deploy AWS resources
 ```
 $ terraform init
 $ terraform plan -out "rosa.plan"
@@ -51,19 +51,9 @@ $ terraform apply "rosa.plan"
 
 ## Deploy Cluster
 
-```
-$ rosa create ocm-role --mode auto -y
-$ rosa create user-role --mode auto -y
-$ rosa create account-roles --mode auto -y
-$ rosa create cluster --region eu-central-1 \
-    --version 4.11.0 \
-    --enable-autoscaling --min-replicas 3 --max-replicas 6 \
-    --private-link \
-    --cluster-name={{ cluster_name }} \
-    --machine-cidr={{ vpc_cidr }} \
-    --subnet-ids={{ private_subnet_id }} \
-    --sts -y
+- Run the script that is displayed in the output of terraform apply command.
 
-
+## TODO
+- Fix subnet id output for 3 AZ
 
 
