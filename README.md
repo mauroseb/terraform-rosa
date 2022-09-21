@@ -37,7 +37,7 @@ $ git clone https://github.com/mauroseb/terraform-rosa.git
 ```
 $ cd terraform-rosa/roots/rosa_privatelink_sts_3azs
 $ cat > terraform.tfvars <__EOF__
-region = "eu-central-1"   
+aws_region = "eu-central-1"   
 cluster_name = "my-test"
 pubkey = "ssh-rsa AAAAB3Nza..."
 __EOF__
