@@ -23,7 +23,7 @@ variable "cluster_owner_tag" {
 }
 
 variable "cluster_cidr" {
-    default = "10.1.0.0/24"
+    default = "10.1.0.0/16"
     description   = "Cluster name"
 }
 
