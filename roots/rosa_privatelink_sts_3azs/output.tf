@@ -1,7 +1,7 @@
-locals {
-   length(aws_subnet.rosa-subnet-priv)
-   subnets = join(",", aws_subnet.rosa-subnet-priv[count.index]['id'])
-}
+#locals {
+#   length(aws_subnet.rosa-subnet-priv)
+#   subnets = join(",", aws_subnet.rosa-subnet-priv[count.index]['id'])
+#}
 
 output "priv_subnet" {
     value = aws_subnet.rosa-subnet-priv[*]
