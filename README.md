@@ -60,8 +60,6 @@ $ terraform apply "rosa.plan"
 ## Deploy Cluster
 
 - Run the script that is displayed in the output of terraform apply command.
-
-## TODO
-- Fix subnet id output for 3 AZ
+- SSH into the bastion host as instructed
 
 
