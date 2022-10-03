@@ -37,6 +37,7 @@ variable "generic_ami" {
     #default = "ami-086c1d77a774201ee" # Fedora 34 us-east-2
     type = map
     default = {
+        af-south-1     = "ami-062c4716a546acec9"
         ap-south-1     = "ami-05c8ca4485f8b138a"
         ap-northeast-1 = "ami-0f903fb156f24adbf"
         ap-northeast-2 = "ami-06c568b08b5a431d5"
