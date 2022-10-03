@@ -2,19 +2,17 @@ locals {
    subnets = join(",", [for subnet in aws_subnet.rosa-subnet-priv: subnet.id])
 }
 
-output "priv_subnet" {
-    value = aws_subnet.rosa-subnet-priv[*]
-    description = "Private subnet/s CIDR"
-}
-
 output "bastion_ip" {
-    value = module.bastion.bastion-ip
-    description = "Bastion IP address"
+    value = <<EOF
+[+] Logging to the RHEL bastion host:
+ssh ec2-user@${module.bastion.bastion-ip}
+EOF
+    description = "Bastion access"
 }
 
 output "script" {
     value = <<EOF
-Create the following script and run it where rosacli is configured:
+[+] Create the following script and modify it at will. Run the script where rosa CLI is configured:
 
 #!/bin/bash
 
@@ -22,7 +20,7 @@ REGION=${var.aws_region}
 SUBNET=${local.subnets}
 OWNER=${var.cluster_owner_tag}
 CLUSTER_NAME=${var.cluster_name}
-VERSION=4.11.1
+VERSION=4.11.5
 ROSA_ENVIRONMENT=Test
 
 rosa create ocm-role --mode auto -y --admin
