@@ -1,21 +1,3 @@
-//data "aws_ami" "centos" {
-//  most_recent = true
-//
-//  filter {
-//    name   = "name"
-//    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-//  }
-//
-//  filter {
-//    name   = "virtualization-type"
-//    values = ["hvm"]
-//  }
-//
-//  owners = ["099720109477"] # Canonical
-//}
-
-
-
 resource "aws_subnet" "bastion-subnet" {
     vpc_id                  = var.vpc_ID
     cidr_block              = "10.1.10.0/24"
