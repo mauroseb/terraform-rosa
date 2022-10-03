@@ -8,16 +8,6 @@ output "priv_subnet_id" {
     description = "For use as '--subnet-ids' parameter in rosa command"
 }
 
-output "pub_subnet" {
-    value = aws_subnet.rosa-subnet-pub.cidr_block
-    description = "Public subnet/s CIDR"
-}
-
-output "pub_subnet_id" {
-    value = aws_subnet.rosa-subnet-pub.id
-    description = "Public subnet/s IDs"
-}
-
 output "bastion_ip" {
     value = module.bastion.bastion-ip
     description = "Bastion IP address"
