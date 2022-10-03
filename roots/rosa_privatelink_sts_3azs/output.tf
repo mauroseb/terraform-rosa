@@ -1,7 +1,6 @@
-#locals {
-#   length(aws_subnet.rosa-subnet-priv)
-#   subnets = join(",", aws_subnet.rosa-subnet-priv[count.index]['id'])
-#}
+locals {
+   subnets = join(",", [for subnet in aws_subnet.rosa-subnet-priv: subnet.id])
+}
 
 output "priv_subnet" {
     value = aws_subnet.rosa-subnet-priv[*]
@@ -20,7 +19,7 @@ Create the following script and run it where rosacli is configured:
 #!/bin/bash
 
 REGION=${var.aws_region}
-SUBNET=local.subnets
+SUBNET=${local.subnets}
 OWNER=${var.cluster_owner_tag}
 CLUSTER_NAME=${var.cluster_name}
 VERSION=4.11.1
