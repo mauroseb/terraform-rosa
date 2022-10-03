@@ -82,7 +82,7 @@ tar xzf openshift-client-linux.tar.gz kubectl oc
 sudo mv oc kubectl /usr/local/bin/
 git clone https://github.com/mauroseb/dotfiles.git
 cd dotfiles ; make all; cd
-
+chsh -s `which zsh`
 
 EOF
     tags                          = {
