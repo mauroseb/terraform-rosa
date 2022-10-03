@@ -75,7 +75,7 @@ resource "aws_instance" "rosa-bastion" {
 #!/bin/bash
 
 sudo dnf install -y git iperf3 podman wget jq bind-utils bat make
-wget https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz -O - |  tar xz && mv yq_linux_amd64 /usr/bin/y
+wget https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz -O - |  tar xz && mv yq_linux_amd64 /usr/bin/yq
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
 tar xzf openshift-client-linux.tar.gz kubectl oc
 sudo mv oc kubectl /usr/local/bin/
