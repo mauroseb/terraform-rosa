@@ -74,15 +74,23 @@ resource "aws_instance" "rosa-bastion" {
     user_data = <<EOF
 #!/bin/bash
 
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo dnf install -y git iperf3 podman wget jq bind-utils make
-wget https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz -O - |  tar xz && mv yq_linux_amd64 /usr/bin/yq
-wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
-tar xzf openshift-client-linux.tar.gz kubectl oc
-sudo mv oc kubectl /usr/local/bin/
+dnf -e 0 -q -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf -e 0 -q -y install git iperf3 podman wget jq bind-utils make zsh
+wget -q https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz -O - | tar xvzf - -C /usr/local/bin --strip-components=0 ./yq_linux_amd64
+mv /usr/local/bin/yq_linux_amd64 /usr/local/bin/yq
+wget -q https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+curl -sSL4 https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o /usr/local/bin/helm && chmod +x /usr/local/bin/helm
+tar xzf openshift-client-linux.tar.gz kubectl oc && rm openshift-client-linux.tar.gz
+mv oc kubectl /usr/local/bin/
+
+sudo -u ec2-user -i bash <<_EC2USER_
+id -a
 git clone https://github.com/mauroseb/dotfiles.git
 cd dotfiles ; make all; cd
-chsh -s `which zsh`
+usermod -s `which zsh` ec2-user
+exit
+_EC2USER_
+
 
 EOF
     tags                          = {
