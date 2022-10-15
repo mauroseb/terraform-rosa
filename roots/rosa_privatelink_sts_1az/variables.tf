@@ -11,13 +11,13 @@ variable "env_name" {
 }
 
 variable "cluster_name" {
-    default = "mauro-pl"
+    default = "rosatest-01"
     description   = "Cluster name"
     type = string
 }
 
 variable "cluster_owner_tag" {
-    default = "mauro"
+    default = "undefined"
     description   = "Cluster owner name to tag resources"
     type = string
 }
