@@ -42,7 +42,7 @@ $ git clone https://github.com/mauroseb/terraform-rosa.git
 2. Create a terraform.tfvars setting values for the input variables. At least __cluster_name__ and __pubkey__.
 ```
 $ cd terraform-rosa/roots/rosa_privatelink_sts_3azs
-$ cat > terraform.tfvars <__EOF__
+$ cat > terraform.tfvars <<__EOF__
 aws_region = "eu-central-1"   
 cluster_name = "my-test"
 pubkey = "ssh-rsa AAAAB3Nza..."
