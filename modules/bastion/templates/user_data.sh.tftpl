@@ -17,10 +17,14 @@ id -a
 git clone --depth 1 https://github.com/mauroseb/dotfiles.git
 cd dotfiles ; make all; cd
 git clone --depth 1 https://github.com/asdf-vm/asdf.git ~/.asdf
-for I_PLUGIN in stern dive kubetail; do
-    asdf plugin add $I_PLUGIN
-    asdf install $I_PLUGIN latest
-done
+_ASUSER_
+sudo -u $USERNAME -H bash <<_ASUSER_
+
+#for I_PLUGIN in stern dive kubetail; do
+#    asdf plugin add $I_PLUGIN
+#    asdf install $I_PLUGIN latest
+#done
 exit
 _ASUSER_
+
 usermod -s `which zsh` $USERNAME
