@@ -12,7 +12,7 @@ tar xzf openshift-client-linux.tar.gz kubectl oc && rm openshift-client-linux.ta
 mv oc kubectl /usr/local/bin/
 curl -sSL4 https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o /usr/local/bin/helm && chmod +x /usr/local/bin/helm
 
-sudo -u $USERNAME -i bash <<_ASUSER_
+sudo -u $USERNAME -H bash <<_ASUSER_
 id -a
 git clone --depth 1 https://github.com/mauroseb/dotfiles.git
 cd dotfiles ; make all; cd
