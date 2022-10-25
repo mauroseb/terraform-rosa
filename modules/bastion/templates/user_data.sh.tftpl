@@ -10,7 +10,7 @@ dnf -e 0 -q -y install git iperf3 podman wget jq bind-utils make zsh net-tools
 [[ ! -x /usr/local/bin/helm ]] && curl -sSL4 https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o /usr/local/bin/helm && chmod +x /usr/local/bin/helm
 
 sudo -H -u $USERNAME bash <<_ASUSER_
-git clone --depth 3 https://github.com/mauroseb/dotfiles.git /home/$USERNAME/dotfiles
+git clone --depth 1 https://github.com/mauroseb/dotfiles.git /home/$USERNAME/dotfiles
 cd /home/${USERNAME}/dotfiles ; make all; cd
 git clone --depth 1 https://github.com/asdf-vm/asdf.git /home/$USERNAME/.asdf
 exit
