@@ -71,7 +71,7 @@ resource "aws_instance" "rosa-bastion" {
     key_name                      = aws_key_pair.bastion-keypair.key_name
     subnet_id                     = aws_subnet.bastion-subnet.id
     vpc_security_group_ids        = [aws_security_group.bastion-sg.id]
-    user_data                     = templatefile("templates/user_data.sh.tftpl", {username = "ec2-user"})
+    user_data                     = templatefile("${path.module}/templates/user_data.sh.tftpl", {username = "ec2-user"})
     tags                          = {
         Owner = var.cluster_owner_tag
         Name  = "${var.env_name}-bastion"
