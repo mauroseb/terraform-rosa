@@ -62,4 +62,8 @@ $ terraform apply "rosa.plan"
 - Run the script that is displayed in the output of terraform apply command.
 - SSH into the bastion host as instructed
 
+## Destroy Cluster
+```
+$ terraform apply -destroy
+```
 
