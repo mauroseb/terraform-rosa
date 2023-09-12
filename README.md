@@ -1,6 +1,6 @@
 # ROSA w/ private link and STS
 
-The code in this repo will create the necesary AWS resources required to deploy Red Hat OpenShift Service on AWS (ROSA) cluster using private link and Secure Token Service.
+The code in this repo will create the necesary AWS resources required to deploy Red Hat OpenShift Service on AWS (ROSA) cluster using private link and AWS Secure Token Service for enhanced security.
 It will create the cluster in a single AZ or in 3 AZs depending on the root module to use.
 
 ## Resources
@@ -67,7 +67,7 @@ $ terraform apply "rosa.plan"
 ```
 $ rosa delete cluster --cluster=my-test --watch
 ```
-3. Destroy the environment
+2. Destroy the environment
 ```
 $ terraform apply -destroy
 ```
