@@ -24,7 +24,7 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
 
 ## Diagram
 
-![Quick Drawing](./images/quick-drawing.png)
+![Quick Drawing](./images/ROSA-terraform-diagram.jpg)
 
 
 
