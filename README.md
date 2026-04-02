@@ -22,7 +22,7 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
  * Public key
  * Bastion instance
 
-## Diagram
+## Architecture Diagram
 
 ![Quick Drawing](./images/ROSA-terraform-diagram.jpg)
 
