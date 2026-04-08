@@ -1,11 +1,11 @@
 # ROSA w/ private link and STS
 
-The code in this repo will create the necesary AWS resources required to deploy Red Hat OpenShift Service on AWS (ROSA) cluster using private link and AWS Secure Token Service for enhanced security.
+The code in this repo will create the AWS resources required to deploy Red Hat OpenShift Service on AWS (ROSA) cluster using private link and AWS Secure Token Service for enhanced security.
 It will create the cluster in a single AZ or in 3 AZs depending on the root module to use.
 
 ## Resources
 
-### For the cluster
+### Cluster
 
  * VPC
  * Public and Private subnets
@@ -14,7 +14,7 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
  * NAT GW
  * Routing tables, rules and association for each subnet
 
-### For Bastion
+### Bastion
 
  * Extra subnet
  * Routing table, rules and association for bastion subnet
@@ -22,7 +22,7 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
  * Public key
  * Bastion instance
 
-## Architecture Diagram
+## Architecture Diagram for Multi-AZ Deployment
 
 ![Quick Drawing](./images/ROSA-terraform-diagram.jpg)
 
@@ -33,7 +33,7 @@ It will create the cluster in a single AZ or in 3 AZs depending on the root modu
  * The terraform AWS provider will need the user to be [authenticated](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
  * The terraform CLI
 
-## Deploy Environment
+## Deployment
 
 1. Clone this repo
 ```
@@ -60,7 +60,7 @@ $ terraform apply "rosa.plan"
 ## Deploy Cluster
 
 - Run the script that is displayed in the output of terraform apply command.
-- SSH into the bastion host as instructed
+- SSH into the bastion host as instructed in the same output
 
 ## Destroy Environment
 1. Delete the ROSA cluster
